@@ -105,6 +105,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\WildCat.cs" />
     <Compile Include="Models\WildCatsDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

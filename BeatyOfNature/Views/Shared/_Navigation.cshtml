@@ -2,11 +2,24 @@
     <div class="container">
         <a class="brand" href="#"> <img src="http://i954.photobucket.com/albums/ae22/katieolsonprice/PA%20Buttons/200x100-noback.png" /></a>
         <div class="navbar">
-            <div class="navbar-inner">
-                <ul class="nav">
-                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
-                </ul>
-            </div>
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+             
+            </p>
+            <ul class="nav">
+                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
+      </div>
+    </div>

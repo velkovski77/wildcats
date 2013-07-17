@@ -8,11 +8,12 @@ namespace BeatyOfNature.Controllers
 {
     public class HomeController : Controller
     {
+        private WildCatsDataContext db = new WildCatsDataContext();
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to Beauty of Nature";
 
-            return View();
+            return View(db.WildCats.ToList());
         }
 
         public ActionResult About()

@@ -32,7 +32,7 @@ namespace BeatyOfNature.Controllers
 
         //
         // GET: /WildCats/Create
-
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -44,16 +44,17 @@ namespace BeatyOfNature.Controllers
         [HttpPost]
         public ActionResult Create(WildCat wildcat)
         {
+
             if (ModelState.IsValid)
             {
                 db.WildCats.Add(wildcat);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(wildcat);
         }
-        
+       
         //
         // GET: /WildCats/Edit/5
  
