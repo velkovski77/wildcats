@@ -14,7 +14,13 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>WildCat</legend>
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Category)
         </div>
@@ -23,13 +29,7 @@
             @Html.ValidationMessageFor(model => model.Category)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Title)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Title)
-            @Html.ValidationMessageFor(model => model.Title)
-        </div>
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Description)
