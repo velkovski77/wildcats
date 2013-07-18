@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BeatyOfNature.Models;
 
+
 namespace BeatyOfNature.Controllers
 { 
     public class WildCatsController : Controller
