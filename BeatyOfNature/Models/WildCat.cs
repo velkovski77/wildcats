@@ -26,5 +26,6 @@ namespace BeatyOfNature.Models
         [DataType(DataType.ImageUrl)]
         [Display(Name = "Image URL")]
         public string ImageUrl { get; set; }
+
     }
 }
