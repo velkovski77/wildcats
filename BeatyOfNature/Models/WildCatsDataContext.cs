@@ -10,6 +10,9 @@ namespace BeatyOfNature.Models
     {
         public DbSet<WildCat> WildCats { get; set; }
 
+       
+     
+
         //static WildCatsDataContext()
         //{
         //    Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WildCatsDataContext>());
