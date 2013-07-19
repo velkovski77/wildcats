@@ -18,6 +18,19 @@
     	    $str = $strtemp + '<span class="hide">' + $str.substr($limit,$str.length) + '</span>';	// Recompose the string with the span tag wrapped around the hidden part of it
     	    $elem.html($str);		// Write the string to the DOM 
     	})
+
+    //checkCurrentLink
+    	$(".nav li a").each(function () {
+
+    	    var addlocal = "http://wild-cats.apphb.com" + $(this).attr('href');
+    	    if (addlocal === document.URL) {
+    	        $(this).css({
+    	            'background-color': 'rgb(229, 229, 229)',
+    	            'box-shadow': 'inset 0 3px 8px rgba(0, 0, 0, 0.125)'
+    	        });
+    	    }
+
+    	});
     
 
 });
