@@ -6,14 +6,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BeatyOfNature.Models;
+using System.IO;
 
 
 namespace BeatyOfNature.Controllers
 { 
     public class WildCatsController : Controller
     {
+        
         private WildCatsDataContext db = new WildCatsDataContext();
-
+        string path = null;
         //
         // GET: /WildCats/
 
@@ -43,11 +45,25 @@ namespace BeatyOfNature.Controllers
         // POST: /WildCats/Create
 
         [HttpPost]
-        public ActionResult Create(WildCat wildcat)
+        public ActionResult Create(WildCat wildcat, HttpPostedFileBase ImageUrl)
         {
-
+          
+           
             if (ModelState.IsValid)
             {
+                try
+                {
+                    var fileName = Path.GetFileName(ImageUrl.FileName);
+                    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
+                    //path = "/UserContent/" + fileName;
+                   path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
+                   ImageUrl.SaveAs(path);
+                  
+                }
+                catch {
+                    ViewBag.errorMessage = "Upload Fail";
+                }
+                //wildcat.ImageUrl = path;
                 db.WildCats.Add(wildcat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -69,10 +85,23 @@ namespace BeatyOfNature.Controllers
         // POST: /WildCats/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(WildCat wildcat)
+        public ActionResult Edit(WildCat wildcat, HttpPostedFileBase ImageUrl)
         {
             if (ModelState.IsValid)
             {
+                try
+                {
+                    var fileName = Path.GetFileName(ImageUrl.FileName);
+                    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
+                    //path = "/UserContent/" + fileName;
+                    path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
+                    ImageUrl.SaveAs(path);
+
+                }
+                catch
+                {
+                    ViewBag.errorMessage = "Upload Fail";
+                }
                 db.Entry(wildcat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -107,4 +136,5 @@ namespace BeatyOfNature.Controllers
             base.Dispose(disposing);
         }
     }
+    
 }
