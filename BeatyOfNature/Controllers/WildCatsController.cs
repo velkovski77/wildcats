@@ -49,17 +49,18 @@ namespace BeatyOfNature.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var fileName = Path.GetFileName(ImageUrl.FileName);
-                    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
-                    path = HttpContext.Server.MapPath("~/UserContent/" + fileName);
-                    ImageUrl.SaveAs(path);
-                 }
-                catch {
-                    ViewBag.errorMessage = "Upload Fail";
-                }
-                wildcat.ImageUrl = path;
+                //try
+                //{
+                //    var fileName = Path.GetFileName(ImageUrl.FileName);
+                //    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
+                //    path = HttpContext.Server.MapPath("~/UserContent/" + fileName);
+                //    ImageUrl.SaveAs(path);
+                   
+                // }
+                //catch {
+                //    ViewBag.errorMessage = "Upload Fail";
+                //}
+                //wildcat.ImageUrl = path;
                 db.WildCats.Add(wildcat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,24 +82,11 @@ namespace BeatyOfNature.Controllers
         // POST: /WildCats/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(WildCat wildcat, HttpPostedFileBase ImageUrl)
+        public ActionResult Edit(WildCat wildcat)
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var fileName = Path.GetFileName(ImageUrl.FileName);
-                    
-                    //path = "/UserContent/" + fileName;
-                    //path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
-                    path = Server.MapPath("~/UserContent/" + fileName);
-                    ImageUrl.SaveAs(path);
-
-                }
-                catch
-                {
-                    ViewBag.errorMessage = "Upload Fail";
-                }
+                
                 db.Entry(wildcat).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
