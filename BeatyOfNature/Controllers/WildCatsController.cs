@@ -47,23 +47,19 @@ namespace BeatyOfNature.Controllers
         [HttpPost]
         public ActionResult Create(WildCat wildcat, HttpPostedFileBase ImageUrl)
         {
-          
-           
             if (ModelState.IsValid)
             {
                 try
                 {
                     var fileName = Path.GetFileName(ImageUrl.FileName);
                     //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
-                    //path = "/UserContent/" + fileName;
-                   path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
-                   ImageUrl.SaveAs(path);
-                  
-                }
+                    path = HttpContext.Server.MapPath("~/UserContent/" + fileName);
+                    ImageUrl.SaveAs(path);
+                 }
                 catch {
                     ViewBag.errorMessage = "Upload Fail";
                 }
-                //wildcat.ImageUrl = path;
+                wildcat.ImageUrl = path;
                 db.WildCats.Add(wildcat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,9 +88,10 @@ namespace BeatyOfNature.Controllers
                 try
                 {
                     var fileName = Path.GetFileName(ImageUrl.FileName);
-                    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
+                    
                     //path = "/UserContent/" + fileName;
-                    path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
+                    //path = HttpContext.Server.MapPath("~/UserContent/") + fileName;
+                    path = Server.MapPath("~/UserContent/" + fileName);
                     ImageUrl.SaveAs(path);
 
                 }
