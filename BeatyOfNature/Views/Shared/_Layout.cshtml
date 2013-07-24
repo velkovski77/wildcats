@@ -1,7 +1,112 @@
-﻿@RenderPage("_Header.cshtml")
-    @RenderPage("_Navigation.cshtml")
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+<style>
+            .field-validation-error {
+            color: #ff0000;
+        }
+
+        .field-validation-valid {
+            display: none;
+        }
+
+        .input-validation-error {
+            border: 1px solid #ff0000;
+            background-color: #ffeeee;
+        }
+
+        .validation-summary-errors {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+
+        .border-div {
+            width: 100%;
+            height: 3px;
+            background-color: #5c87b2;
+        }
+        footer, 
+        #footer {
+            background-color: #fff;
+            color: #999;
+            padding: 10px 0;
+            text-align: center;
+            line-height: normal;
+            margin: 0 0 30px 0;
+            font-size: .9em;
+            -webkit-border-radius: 0 0 4px 4px;
+            -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+        }
+        .quotes {
+            min-height:80px;
+            list-style-type:none;
+        }
+        .quotes li {
+            font-size:30px;
+            font-family:'Sakkal Majalla';
+        }
+        .imgresize {
+            width:1200px;
+            height:480px;
+        }
+</style>
+     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap-responsive.css")" rel="stylesheet" type="text/css" />
+ </head>
+<body>
+    <div class="container">
+        <a class="brand" href="#"> <img src="http://i954.photobucket.com/albums/ae22/katieolsonprice/PA%20Buttons/200x100-noback.png" /></a>
+        <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+             
+            </p>
+            <ul class="nav" id="navmenu">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
         @RenderBody()
-@RenderPage("_Footer.cshtml")
+<br /><div class="border-div"></div>
+    <div class="row">
+        <div class="span12">
+            <div class="pull-right">
+                 <h4 >Connect with US</h4>
+                 <img src="http://www.anac.on.ca/images/facebook_icon.gif" width="50px"/>
+                 <img src="http://www.tourismwhitsundays.com.au/Portals/0/images/Logos/Twitter%20icon%20peel%20over.png" width="55px"/>
+                 <img src="http://www.redstarresume.com.au/uploads/images/thumbs/Building_your_Linkedin_Profile_with_Resume_Writing_Service.jpeg" width="50px"/>
+            </div>
+        </div>
+   </div>
+<div id="footer">
+     Copyright nature-beauty.apphb.com 2013
+</div>
+</div>
+
+</body>
+</html>
+ <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+ <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+ <script src="@Url.Content("~/Scripts/bootstrap-dropdown.js")" type="text/javascript"></script>
+<script src="//cdn.optimizely.com/js/281696775.js"></script>
 <script type="text/javascript">
     (function ($) {
         $.fn.list_ticker = function (options) {
