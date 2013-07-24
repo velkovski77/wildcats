@@ -45,7 +45,7 @@ namespace BeatyOfNature.Controllers
         // POST: /WildCats/Create
 
         [HttpPost]
-        public ActionResult Create(WildCat wildcat, HttpPostedFileBase ImageUrl)
+        public ActionResult Create(WildCat wildcat)
         {
             if (ModelState.IsValid)
             {

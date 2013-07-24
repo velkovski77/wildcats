@@ -13,7 +13,7 @@ namespace BeatyOfNature.Controllers
         {
             ViewBag.Message = "Welcome to Beauty of Nature";
             ViewBag.count = 0;
-            return View();
+            return View(db.WildCats.ToList());
         }
 
         public ActionResult About()
