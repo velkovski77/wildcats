@@ -49,19 +49,19 @@ namespace BeatyOfNature.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var fileName = Path.GetFileName(ImageUrl.FileName);
-                    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
-                    path = HttpContext.Server.MapPath("~/Images/" + fileName);
-                    //path = Url.Content("~/UserContent/" + fileName);
-                    ImageUrl.SaveAs(path);
-                    wildcat.ImageUrl = Url.Content("~/Images/" + fileName);
-                }
-                catch
-                {
-                    ViewBag.errorMessage = "Upload Fail";
-                }
+                //try
+                //{
+                //    var fileName = Path.GetFileName(ImageUrl.FileName);
+                //    //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
+                //    path = HttpContext.Server.MapPath("~/Images/" + fileName);
+                //    //path = Url.Content("~/UserContent/" + fileName);
+                //    ImageUrl.SaveAs(path);
+                //   // wildcat.ImageUrl = Url.Content("~/Images/" + fileName);
+                //}
+                //catch
+                //{
+                //    ViewBag.errorMessage = "Upload Fail";
+                //}
                 //wildcat.ImageUrl = Url.Content("~/UserContent/" + fileName);
                 db.WildCats.Add(wildcat);
                 db.SaveChanges();
