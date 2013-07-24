@@ -53,10 +53,10 @@ namespace BeatyOfNature.Controllers
                 {
                     var fileName = Path.GetFileName(ImageUrl.FileName);
                     //path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + fileName;
-                    path = HttpContext.Server.MapPath("~/UserContent/" + fileName);
+                    path = HttpContext.Server.MapPath("~/Images/" + fileName);
                     //path = Url.Content("~/UserContent/" + fileName);
                     ImageUrl.SaveAs(path);
-                    wildcat.ImageUrl = Url.Content("~/UserContent/" + fileName);
+                    wildcat.ImageUrl = Url.Content("~/Images/" + fileName);
                 }
                 catch
                 {
